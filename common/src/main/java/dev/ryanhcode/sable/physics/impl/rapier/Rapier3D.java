@@ -56,7 +56,10 @@ public class Rapier3D {
     }
 
     private static void loadLibrary() {
-        if (loadFromProperty()) return;
+        if (loadFromProperty()) {
+            ENABLED = true;
+            return;
+        }
 
         final String nativeName = getNativeName();
         try (final InputStream is = Rapier3D.class.getResourceAsStream("/natives/" + LIB_NAME + "/" + nativeName)) {
